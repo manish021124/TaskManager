@@ -1,0 +1,34 @@
+@model TaskManager.Models.TaskItem
+
+<div class="container mt-5">
+  <h1>Edit Task</h1>
+
+  @if (ViewData["ErrorMessage"] != null)
+  {
+    <div class="alert alert-danger">
+      @ViewData["ErrorMessage"]
+    </div>
+  }
+
+  <form method="post" class="space-y-4">
+    <div class="mb-4">
+      <label for="Title" class="form-label">Title</label>
+      <input type="text" id="Title" name="Title" value="@Model.Title" class="form-control" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="Description" class="form-label">Description</label>
+      <textarea id="Description" name="Description" class="form-control" required>@Model.Description</textarea>
+    </div>
+
+    <div class="mb-4 form-check">
+      <input type="checkbox" id="IsCompleted" name="IsCompleted" class="form-check-input" value="true"
+      @(Model.IsCompleted ? "checked" : "") />
+      <label for="IsCompleted" class="form-check-label">Completed</label>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Save Changes</button>
+  </form>
+
+  <a href="/Task/Index" class="btn btn-secondary mt-4">Back to Task List</a>
+</div>

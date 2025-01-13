@@ -1,0 +1,12 @@
+@model TaskManager.Models.TaskItem
+
+<div class="container mt-5">
+  <h1>Delete Task</h1>
+
+  <p>Are you sure you want to delete the task "<strong>@Model.Title</strong>"?</p>
+
+  <form method="post" class="space-y-4">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/Task/Index" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>

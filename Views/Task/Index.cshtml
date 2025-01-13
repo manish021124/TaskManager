@@ -1,0 +1,31 @@
+@model IEnumerable<TaskManager.Models.TaskItem>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Task List</h1>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var task in Model)
+      {
+        <tr>
+          <td>@task.Title</td>
+          <td>@task.Description</td>
+          <td>@(task.IsCompleted ? "Yes" : "No")</td>
+          <td>
+            <a href="/Task/Edit/@task.Id" class="btn btn-warning btn-sm">Edit</a>
+            <a href="/Task/Delete/@task.Id" class="btn btn-danger btn-sm">Delete</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
